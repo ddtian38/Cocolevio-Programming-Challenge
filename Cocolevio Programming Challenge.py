@@ -1,6 +1,9 @@
 #Daniel Tian
 #Cocolevio Programming Challenge
-x = 35 #total material given for supply
+
+#Assumptions: No negative values. Each company reqeusts a unique amount of the material.
+
+x = 55 #total material given for supply
 company = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'] #companies
 amount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] #corresponding quantity of the material that companies request
 price = [1, 5, 8, 9, 10, 17, 17, 20, 24, 30] #corresponding price that company is willing to pay
@@ -16,22 +19,26 @@ for i in index:
     n2 = float(amount[i])
     parent_rate.append(round(n1/n2,2))
 #Algorithm finds the highest rate from the list of companies and calculates the profit after selling material to the company with the highest rate. 
-while x > 0 and len(amount)!=0 and x > min(amount):
+while x > 0 and len(amount)!=0 and x >= min(amount):
     amount_used = []
     soldcompany = []
 
+    #Retrieves corresponding index of the maximum price
     index = []
     max_rate = max(parent_rate)
-    ind_max_rate = [i for i, j in enumerate(parent_rate) if j == max_rate] #Retrieves corresponding index of the maximum price
+    ind_max_rate = [i for i, j in enumerate(parent_rate) if j == max_rate]
     
     for i in ind_max_rate:
+        print(x)
+        print(str(x-amount[i]))
+        print("Index: " + str(i))
         if x-amount[i] >= 0:
             a = amount[i]
             p = price[i]
             profit = profit + max_rate*a
             #Subtracts amount sold from supply
             x = x-a
-            print(x)
+ 
             soldcompany.append(company[i])
             amount_used.append(amount[i])
             company_sold_to.append(company[i])
