@@ -14,3 +14,11 @@ for i in index:
     n1 = float(price[i])
     n2 = float(amount[i])
     parent_rate.append(round(n1/n2,2))
+
+while x > 0 and len(amount)!=0 and x > min(amount):
+    amount_used = []
+    soldcompany = []
+
+    index = []
+    max_rate = max(parent_rate)
+    ind_max_rate = [i for i, j in enumerate(parent_rate) if j == max_rate] #Retrieves corresponding index of the maximum price
