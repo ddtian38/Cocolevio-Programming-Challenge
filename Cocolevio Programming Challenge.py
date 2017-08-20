@@ -22,3 +22,31 @@ while x > 0 and len(amount)!=0 and x > min(amount):
     index = []
     max_rate = max(parent_rate)
     ind_max_rate = [i for i, j in enumerate(parent_rate) if j == max_rate] #Retrieves corresponding index of the maximum price
+
+    for i in ind_max_rate:
+        a = amount[i]
+        p = price[i]
+        profit = profit + max_rate*a
+        #Subtracts amount sold from supply
+        x = x-a
+        
+        soldcompany.append(company[i])
+        amount_used.append(amount[i])
+        company_sold_to.append(company[i])
+        
+    #Removes used highest rate 
+    for r in parent_rate:
+        if r == max_rate:
+            parent_rate.remove(r)
+
+
+    #Updating lists for next round of finding the next highest rate
+    for n in amount_used:
+        for m in amount:
+            if n==m:
+                amount.remove(m)
+
+    for a in soldcompany:
+        for b in company:
+            if a == b:
+                company.remove(b)
