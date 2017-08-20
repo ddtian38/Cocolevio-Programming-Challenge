@@ -1,6 +1,7 @@
 #Daniel Tian
 #Cocolevio Programming Challenge
 x = 25 #total material given for supply
+company = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'] #companies
 amount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] #corresponding quantity of the material that companies request
 price = [1, 5, 8, 9, 10, 17, 17, 20, 24, 30] #corresponding price that company is willing to pay
 
@@ -50,3 +51,14 @@ while x > 0 and len(amount)!=0 and x > min(amount):
         for b in company:
             if a == b:
                 company.remove(b)
+
+
+#Prints how much profit is made
+print('Profit made: $' + str(round(profit,2)))
+
+#Prints how much material is left
+print('Remaining: ' + str(x))
+
+#Prints to which company has the material been given to
+print('Companies that the material should be sold to: ' + str((sorted(company_sold_to))))
+
