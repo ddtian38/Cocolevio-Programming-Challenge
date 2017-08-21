@@ -29,9 +29,6 @@ while x > 0 and len(amount)!=0 and x >= min(amount):
     ind_max_rate = [i for i, j in enumerate(parent_rate) if j == max_rate]
     
     for i in ind_max_rate:
-        print(x)
-        print(str(x-amount[i]))
-        print("Index: " + str(i))
         if x-amount[i] >= 0:
             a = amount[i]
             p = price[i]
@@ -59,8 +56,6 @@ while x > 0 and len(amount)!=0 and x >= min(amount):
         for b in company:
             if a == b:
                 company.remove(b)
-    print(amount)
-
 #Prints how much profit is made
 print('Profit made: $' + str(round(profit,2)))
 
